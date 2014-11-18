@@ -1,0 +1,18 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p><h3>GitHub API Demo</h3></p>
+                <hr>
+                <a href="/repos" class="btn btn-primary">Repos & User Info</a>
+                {% if 'access_token' in session.keys() %}
+                <a class="btn btn-danger" href="/logout">Logout</a>
+                {% else %}
+                <a class="btn btn-success" href="https://github.com/login/oauth/authorize?scope=user,public_repo,notifications&client_id={{ client_id }}">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
